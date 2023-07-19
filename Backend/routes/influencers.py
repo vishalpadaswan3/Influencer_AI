@@ -20,4 +20,4 @@ def create_influencer():
     except Exception as e:
         print(e)
         return jsonify({"message": "Error"}), 500
-    
+
