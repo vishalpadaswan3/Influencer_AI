@@ -1,0 +1,67 @@
+<div class="container" [ngClass]="{'sign-up-mode': isSignUpMode}">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form class="sign-in-form" (ngSubmit)="loginFormSubmit()">
+                <h2 class="title">SIGN IN</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" [(ngModel)]="email"  placeholder="Email" name="email" required id="emaillogin" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" [(ngModel)]="password" placeholder="Password" name="password" required id="passwordlogin"/>
+                </div>
+                <input type="submit"  value="Login" class="btn solid"  />
+            </form>
+
+
+            <form class="sign-up-form" (ngSubmit)="signUpFormSubmit()">
+                <h2 class="title">SIGN UP !</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Name" required id="name"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required id="email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="text" placeholder="Domain" required id="domain"/>
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="text" placeholder="Domain_link" required id="domainlink"/>
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required id="password"/>
+                </div>
+
+                <input type="submit" class="btn" value="Sign up" />
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New here ?</h3>
+                <p>Don't have an account ? click here</p>
+                <button class="btn transparent" (click)="toggleSignUpMode()">Sign up</button>
+            </div>
+            <img src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png" class="image" alt="" />
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of us ?</h3>
+                <p>Already have an account ? click here</p>
+                <button class="btn transparent" (click)="toggleSignUpMode()">Sign in</button>
+            </div>
+            <img src="https://i.ibb.co/nP8H853/Mobile-login-rafiki.png" class="image" alt="" />
+        </div>
+    </div>
+</div>
