@@ -13,7 +13,10 @@ export class LoginpageComponent {
   email = '';
   password = '';
   isSignUpMode: boolean = false;
-
+  domain = '';
+  domain_link = '';
+  name = '';
+  
   toggleSignUpMode() {
     this.isSignUpMode = !this.isSignUpMode;
   }
@@ -22,6 +25,12 @@ export class LoginpageComponent {
   constructor(private authService: AuthService) { }
 
   loginFormSubmit() {
+    if(this.email == '' || this.password == ''){
+      alert("Please fill all the fields")
+      return;
+    }
+
+    
     this.authService.loginUser(this.email, this.password).subscribe(
       response => {
         console.log(response);
@@ -39,8 +48,25 @@ export class LoginpageComponent {
   }
 
   signUpFormSubmit() {
-    alert("jf")
-    console.log("hd");
+    if(this.name == '' || this.email == '' || this.domain == '' || this.domain_link == '' || this.password == ''){
+      alert("Please fill all the fields")
+      return;
+    }
+
+    if(!this.email.includes('@')){
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    this.authService.signUpUser(this.name,this.email,this.domain,this.domain_link,this.password).subscribe(
+      response => {
+        console.log(response);
+        alert("Sign Up Successful");
+        this.toggleSignUpMode();
+      }
+    );
+
+
   }
 
 

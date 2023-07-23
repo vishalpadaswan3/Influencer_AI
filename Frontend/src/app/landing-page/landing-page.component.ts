@@ -11,25 +11,60 @@ export class LandingPageComponent implements OnInit {
 
   token = localStorage.getItem('token');
   Generate(): void {
-   if(this.token){
-    window.location.href = '/generate';
-   }else{
-    window.location.href = '/login';
-   }
+    if (this.token) {
+      fetch('http://localhost:5000/tokenhelp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: this.token }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message === 'success') {
+            window.location.href = 'http://localhost:5000/generate';
+          } else {
+            window.location.href = '/login';
+          }
+        })
+        .catch((err) => console.log(err));
+
+
+      fetch('http://localhost:5000/tokenhelp1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: this.token }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.message === 'success') {
+            window.location.href = 'http://localhost:5000/generate';
+          } else {
+            window.location.href = '/login';
+          }
+        })
+
+    } else {
+      window.location.href = '/login';
+    }
   }
 
   check(): string {
-    if(this.token){
+    if (this.token) {
       return "none";
-    }else{
+    } else {
       return "block";
     }
   }
 
   Logout(): string {
-    if(this.token){
+    if (this.token) {
       return "block";
-    }else{
+    } else {
       return "none";
     }
   }

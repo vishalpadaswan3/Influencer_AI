@@ -15,5 +15,12 @@ export class AuthService {
     return this.httpClient.post<any>('http://localhost:5000/influencers/login', {email, password});
   }
 
+  signUpUser(name:string, email: string,domain:string,domain_link:string, password:string): Observable<any> {
+    if(name == '' || email == '' || domain == '' || domain_link == '' || password == ''){
+      alert("Please fill all the fields")
+    }
+    return this.httpClient.post<any>('http://localhost:5000/influencers/register', {email, password,domain,domain_link,name});
+  }
+
 
 }
