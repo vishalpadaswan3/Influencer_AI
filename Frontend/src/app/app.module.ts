@@ -8,17 +8,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginpageComponent } from './loginpage/loginpage.component'; // Ensure this path is correct
-import { HttpClientModule } from '@angular/common/http'; // Ensure this path is correct
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { GenerateresponseComponent } from './generateresponse/generateresponse.component';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     LoginpageComponent,
-    GenerateresponseComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +27,10 @@ import { GenerateresponseComponent } from './generateresponse/generateresponse.c
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule, // Ensure this line is added
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot([]),
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

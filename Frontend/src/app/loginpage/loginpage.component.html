@@ -19,28 +19,28 @@
                 <h2 class="title">SIGN UP !</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Name" required id="name"/>
+                    <input type="text" placeholder="Name" name="name" [(ngModel)]="name" required id="name"/>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email" required id="email" />
+                    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required id="email" />
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="text" placeholder="Domain" required id="domain"/>
+                    <input type="text" placeholder="Domain" name="domain" [(ngModel)]="domain" required id="domain"/>
                 </div>
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="text" placeholder="Domain_link" required id="domainlink"/>
+                    <input type="text" placeholder="Domain_link" name="domain_link" [(ngModel)]="domain_link" required id="domainlink"/>
                 </div>
 
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" required id="password"/>
+                    <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required id="password"/>
                 </div>
 
-                <input type="submit" class="btn" value="Sign up" />
+                <input type="submit" class="btn" value="register" />
                 
             </form>
         </div>
